@@ -332,6 +332,64 @@
             </objects>
             <point key="canvasLocation" x="1629" y="337"/>
         </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="pTU-Ki-UW2">
+            <objects>
+                <viewController storyboardIdentifier="Comment" id="xb1-nC-jS4" customClass="CommentViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IWI-JT-LhB"/>
+                        <viewControllerLayoutGuide type="bottom" id="OY3-j7-JjN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YfC-U4-a8r">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d41-Qx-64B">
+                                <rect key="frame" x="16" y="170" width="288" height="40"/>
+                                <state key="normal" title="コメント" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCommentButton:" destination="xb1-nC-jS4" eventType="touchUpInside" id="PuD-Ef-HNu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dg4-BE-MTk">
+                                <rect key="frame" x="16" y="220" width="288" height="40"/>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCancelButton:" destination="xb1-nC-jS4" eventType="touchUpInside" id="bdA-4C-2e1"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HVh-Hn-u3d">
+                                <rect key="frame" x="16" y="40" width="288" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="2V3-ne-8xf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HVh-Hn-u3d" firstAttribute="leading" secondItem="YfC-U4-a8r" secondAttribute="leadingMargin" id="Oh9-l2-I51"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="d41-Qx-64B" secondAttribute="trailing" id="P17-b1-OmS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HVh-Hn-u3d" secondAttribute="trailing" id="X3b-Er-xZ6"/>
+                            <constraint firstItem="d41-Qx-64B" firstAttribute="leading" secondItem="YfC-U4-a8r" secondAttribute="leadingMargin" id="dIY-Ot-IQ6"/>
+                            <constraint firstItem="d41-Qx-64B" firstAttribute="top" secondItem="HVh-Hn-u3d" secondAttribute="bottom" constant="10" id="lP3-Fc-F6F"/>
+                            <constraint firstItem="HVh-Hn-u3d" firstAttribute="top" secondItem="IWI-JT-LhB" secondAttribute="bottom" constant="20" id="p3I-L0-HF2"/>
+                            <constraint firstItem="dg4-BE-MTk" firstAttribute="trailing" secondItem="YfC-U4-a8r" secondAttribute="trailingMargin" id="ruM-9g-IL2"/>
+                            <constraint firstItem="dg4-BE-MTk" firstAttribute="leading" secondItem="YfC-U4-a8r" secondAttribute="leadingMargin" id="sRe-0b-z2w"/>
+                            <constraint firstItem="dg4-BE-MTk" firstAttribute="top" secondItem="d41-Qx-64B" secondAttribute="bottom" constant="10" id="uMf-LU-87B"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="textView" destination="HVh-Hn-u3d" id="6bC-me-PkH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B1q-w0-XJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986" y="337"/>
+        </scene>
     </scenes>
     <resources>
         <image name="btn" width="300" height="40"/>

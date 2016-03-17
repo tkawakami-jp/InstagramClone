@@ -16,7 +16,13 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var commentText: UILabel!
+    //@IBOutlet weak var commentText: UITextView!
+    
     var postData: PostData?
+    var flag: String?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +34,14 @@ class PostTableViewCell: UITableViewCell {
     
     // 表示されるときに呼ばれるメソッドをオーバーライドしてデータをUIに反映する
     override func layoutSubviews() {
+        
+        if(flag != postData!.id){
+        
+        commentLabel.text = "0"
+        commentText.text = ""
+        commentText.layer.borderWidth = 0.5
+        commentText.layer.cornerRadius = 4
+        commentText.layer.borderColor = UIColor.grayColor().CGColor
         
         postImageView.image = postData!.image
         captionLabel.text = "\(postData!.name!) : \(postData!.caption!)"
@@ -50,7 +64,21 @@ class PostTableViewCell: UITableViewCell {
             likeButton.setImage(buttonImage, forState: UIControlState.Normal)
         }
         
+        if let commentNumber = postData!.commentJson {
+            commentLabel.text = "\(commentNumber.count)"
+        }
+        
+        if let json = postData!.commentJson {
+            for (_, value) in json {
+                commentText.text = commentText.text! + "\(value["commentName"]):\(value["commentText"])\n"
+            }
+        }
+        
+        flag = postData!.id
+        
         super.layoutSubviews()
+        
+        }
     }
     
 }

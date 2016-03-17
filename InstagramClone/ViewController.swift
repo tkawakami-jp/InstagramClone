@@ -68,7 +68,7 @@ class ViewController: UIViewController {
             // ボタンが押されたらImageViewControllerをモーダルで表示する
             let imageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ImageSelect")
             self.presentViewController(imageViewController!, animated: true, completion: nil)
-            }, atIndex: 1)
+        }, atIndex: 1)
     }
 
 

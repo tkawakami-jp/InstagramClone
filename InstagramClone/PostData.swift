@@ -20,6 +20,9 @@ class PostData: NSObject {
     var likes: [String] = []
     var isLiked: Bool = false
     
+    var comments: NSDictionary? = [:]
+    var commentJson: JSON?
+    
     init(snapshot: FDataSnapshot, myId: String) {
         id = snapshot.key
         
@@ -41,5 +44,11 @@ class PostData: NSObject {
         }
         
         self.date = NSDate.init(timeIntervalSinceReferenceDate: snapshot.value.objectForKey("time") as! NSTimeInterval)
+        
+        if let comments = snapshot.value.objectForKey("comments") as? NSDictionary {
+            self.comments = comments
+            self.commentJson = JSON(comments.allValues)
+        }
+        
     }
 }
